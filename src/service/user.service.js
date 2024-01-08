@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const salt = 11;
 
 async function registration(users) {
-    const foundUser = await getUserByEmailDB(users.email)
+    const foundUser = await getUserByEmailDB(users)
     if (foundUser.length) throw new Error('his user already exists');
     const hashPassword = await bcrypt.hash(users.password, salt)
 
