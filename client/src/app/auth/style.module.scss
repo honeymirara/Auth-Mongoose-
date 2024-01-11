@@ -1,0 +1,84 @@
+/* styles.css */
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    background-size: cover;
+    padding: 200px 0;
+
+    background: linear-gradient(to bottom, #287aff, #6600e3, rgb(247, 0, 255), #ff0066);
+    background-size: 100% 400%;
+    animation: gradientMotion 12s linear infinite;
+    color: #ffffff;
+    font-family: 'Your Chosen Font', sans-serif;
+
+    @keyframes gradientMotion {
+        0% {
+            background-position: 50% 0%;
+        }
+
+        50% {
+            background-position: 50% 100%;
+        }
+
+        100% {
+            background-position: 50% 0%;
+        }
+
+    }
+
+    .form {
+        display: flex;
+        background: linear-gradient(to right, #4a00e0, #8e2de2);
+        justify-content: center;
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        text-align: center;
+
+        input {
+            background-color: rgba(255, 255, 255, 0.7);
+            color: #000000;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+
+            .input-field::placeholder {
+                color: #000000;
+            }
+
+        }
+
+        .button {
+            background: linear-gradient(to right, #ff5e62, #ff3d46);
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+
+            &:hover {
+                background: linear-gradient(to right, #ff3d46, #ff1f29);
+                cursor: pointer;
+                transition: background 0.5s ease;
+            }
+        }
+
+        .palms {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            pointer-events: none;
+            filter: contrast(1.5) brightness(0.8);
+            /* Эффект контрастности и яркости */
+        }
+    }
+}
