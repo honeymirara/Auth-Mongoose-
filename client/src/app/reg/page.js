@@ -1,16 +1,35 @@
+'use client'
+
+import { useState } from "react"
 import Header from "../components/Header/Header"
+import style from './style.module.scss'
 
 
 export default function Reg() {
-    return (<>
-        <Header />
-        <h1>Registration</h1>
-        <input placeholder="name"></input>
-        <input placeholder="lastname"></input>
-        <input placeholder="age"></input>
-        <input placeholder="email"></input>
-        <input placeholder="password"></input>
-        <button>Sign Up</button>
-    </>
+    const [inp, setInp] = useState({ name: '', lastname: '', age: '', email: '', password: '' })
+
+    function changeInput(e) {
+        setInp({ ...inp, [e.target.name]: e.target.value })
+    }
+
+    function showRegistration() {
+        console.log(inp)
+    }
+
+    return (
+        <>
+            <Header />
+            <div className={style.container}>
+                <form className={style.form}>
+                    <h1>Registration</h1>
+                    <input onChange={changeInput} placeholder="name" name="name"></input>
+                    <input onChange={changeInput} placeholder="lastname" name="lastname"></input>
+                    <input onChange={changeInput} placeholder="age" name="age"></input>
+                    <input onChange={changeInput} placeholder="email" name="email"></input>
+                    <input onChange={changeInput} placeholder="password" name="password"></input>
+                    <button onClick={showRegistration}>Sign Up</button>
+                </form>
+            </div>
+        </>
     )
 }
