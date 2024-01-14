@@ -8,7 +8,10 @@ route.post('/', async (req, res) => {
     try {
         const data = await registration(req.body)
         const token = generateToken(data[data.length - 1])
-        res.cookie('Bearer', token)
+        res.cookie('Bearer', token, {
+            httpOnly: false,
+            secure: true
+        })
         buildResponse(res, data, 200)
     } catch (err) {
         buildResponse(res, err.message, 404)

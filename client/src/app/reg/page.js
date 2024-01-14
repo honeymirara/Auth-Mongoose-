@@ -8,13 +8,21 @@ import style from './style.module.scss'
 export default function Reg() {
     const [inp, setInp] = useState({ name: '', lastname: '', age: '', email: '', password: '' })
 
+
     function changeInput(e) {
         setInp({ ...inp, [e.target.name]: e.target.value })
     }
 
-    function showRegistration() {
-        console.log(inp)
+   
+
+    async function sendData() {
+        const data = await axios.post('http://localhost:3000/user', inp, {
+            withCredentials: true
+        });
+        console.log(data)
     }
+
+
 
     return (
         <>
@@ -27,7 +35,7 @@ export default function Reg() {
                     <input onChange={changeInput} placeholder="age" name="age"></input>
                     <input onChange={changeInput} placeholder="email" name="email"></input>
                     <input onChange={changeInput} placeholder="password" name="password"></input>
-                    <button onClick={showRegistration}>Sign Up</button>
+                    <button onClick={sendData}>Sign Up</button>
                 </form>
             </div>
         </>
